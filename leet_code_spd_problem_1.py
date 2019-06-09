@@ -2,28 +2,21 @@
 # Question: Two Sum
 
 
-
 class Solution:
-  def twoSum(self, nums, target):
-   #       going to create a dictionary for instant lookup, where key is the number and the value is the index
-    num_store = self.create_num_store(nums) # O(n) space complexity
-  # 
-    for num in nums: # O(n) time complexity
-      lookup_num = target - num
-      if lookup_num in num_store: #O(1) time complexity 
-        return [num, lookup_num]
-      else:
-        num_store.pop(num)
+    def twoSum(self, nums, target):
+     #       going to create a dictionary for instant lookup, where key is the number and the value is the index
+        # num_store = self.create_num_store(nums) # O(n) space complexity and time
+        num_store = {}
 
-    
-    
-  def create_num_store(self, nums) :
-    num_dict = {}
-
-    for index, number in enumerate(nums):
-      num_dict[number] = index
-    return num_dict
-
+        # i want to have a bank of the numbers given to me
+        # as i go through the array of numbers I substract the given number with the target and get a value
+        # with that value number i will look in my bank of key(num) value(index) pairs
+        for index, num in enumerate(nums):
+            lookup = target - num
+            if lookup in num_store:
+                return [num_store[lookup], index]
+            num_store[num] = index
+        return []
 
 
 # Restate: Okay, so I am given an array that contains a list of numbers.
@@ -50,4 +43,7 @@ class Solution:
 # ORIGINAL THOUGHT:
 # I was thinking of having two variable pointers one that starts at index 0
 # the other starting at index of the first point plus one
-# 
+# the second point will go through the entire list and add each number that it gets with the index value of pointer 1
+# if it does not find it it will shift the pointer 1 up one and the pointer 2 will restart to pointer's 1 index plus 1 and repeat
+# until it finds the total sum to return the index. If not it will return an empty list.
+# However this solution is O(n^2) in time complexity and O(1) space complexity. Meaning it will take a long time if we get large inputs
