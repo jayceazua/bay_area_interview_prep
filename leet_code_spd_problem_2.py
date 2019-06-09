@@ -15,6 +15,14 @@
 # 2. the linked list given have head and tail properties.
 # 3. I can create my own node and linked list class
 
-# ORIGINAL THOUGHT:
+# Think out load
+
+  # brainstorm solutions:
+
+  # explain your rationale:
+
+  # discuss trade offs:
+
+  # suggest improvements:
 
 # Leetcode:
