@@ -29,8 +29,7 @@
   # Create a reusable method to traverse through a linked list and return the proper number.
   # Another method to reverse the number and create a reversed linked list. 
   
-
-  # explain your rationale: I feel as through I needs to be done in this manner because regardless traversing 
+  # explain your rationale: I feel as through It needs to be done in this manner because regardless traversing 
   # through a linked list is O(n). Having a custom method makes it cleaner code and reusable. 
 
   # discuss trade offs: I was considering putting the numbers in an array as a traverse through the linked list then calling the reverse option
