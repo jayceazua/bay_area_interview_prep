@@ -1,10 +1,14 @@
 # Leet Code SPD1.01 Problem 2
 # Question: Add Two Numbers Linked List
+
 # Definition for doubly-linked list.
+# Definition for singly-linked list.
+class ListNode:
+  def __init__(self, x):
+    self.val = x
+    self.next = None
 
 # function to turn a linked list to a number
-
-
 def return_integer_from_ll(ll):
     # repr_num = [] # takes O(n) time and space complexity
     repr_num = ""  # O(n) space complexity and time is O(1) time complexity
@@ -20,9 +24,9 @@ def return_integer_from_ll(ll):
 
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers(self, l1, l2):
         # instantiate the linked list we need to return.
-        l3 = ListNode(None)
+        # l3 = ListNode(None)
 
         # a function or method that allows me to traverse through the linked list and return a digit value
         l1_num = return_integer_from_ll(l1)
