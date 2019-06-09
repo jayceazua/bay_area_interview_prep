@@ -4,19 +4,19 @@
 
 class Solution:
     def twoSum(self, nums, target):
-     #       going to create a dictionary for instant lookup, where key is the number and the value is the index
-        # num_store = self.create_num_store(nums) # O(n) space complexity and time
-        num_store = {} # O(n) space complexity
+      #       going to create a dictionary for instant lookup, where key is the number and the value is the index
+      # num_store = self.create_num_store(nums) # O(n) space complexity and time
+      num_store = {} # O(n) space complexity
 
-        # i want to have a bank of the numbers given to me
-        # as i go through the array of numbers I substract the given number with the target and get a value
-        # with that value number i will look in my bank of key(num) value(index) pairs
-        for index, num in enumerate(nums): #O(n) time complexity
-            lookup = target - num
-            if lookup in num_store: # O(1) time "lookup" complexity
-                return [num_store[lookup], index]
-            num_store[num] = index
-        return []
+      # i want to have a bank of the numbers given to me
+      # as i go through the array of numbers I substract the given number with the target and get a value
+      # with that value number i will look in my bank of key(num) value(index) pairs
+      for index, num in enumerate(nums): #O(n) time complexity
+          lookup = target - num
+          if lookup in num_store: # O(1) time "lookup" complexity
+              return [num_store[lookup], index]
+          num_store[num] = index
+      return []
 
 
 # Restate: Okay, so I am given an array that contains a list of numbers.
