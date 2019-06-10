@@ -2,3 +2,7 @@ heuristic - proceeding to a solution by trial and error by rules that are loosel
 Does not intend to find the best solution.
 
 <!-- Preprocessing code for better way of solving the problem after -->
+
+Signed Integer:
+Unsigned Integer:
+Integer Overflows:
