@@ -22,30 +22,19 @@ def return_integer_from_ll(ll: ListNode) -> int:
 
 # function to turn a number into a linked list
 def convert_num_to_ll(num: int) -> ListNode:
-    num_str = str(num)[::-1]  # convert the number into a string and reverse it
-
-    head = None  # [first->]
-    tail = None  # [second-> "next" second->]
-
+  num_str = str(num)[::-1]  # convert the number into a string and reverse it
+  head = None  # [first->]
     ####   create the linked list ####
 #   prepend method for linked list
-    for n in num_str:
-        # create a new node with the value
-        new_node = ListNode(int(n))
-        # check if the head of the linked list is empty
-        if head == None:
-            # set the start of the linked list
-            tail = new_node
-        # otherwise
-        else:
-            new_node.next = head
-
-        # set the new node as well as the new node created above
-        # tail = new_node
-        head = new_node
-        # head.next = tail
-    return head
-
+  for n in num_str:
+    # create a new node with the value
+    new_node = ListNode(int(n))
+    if head != None:
+      new_node.next = head
+    # set the new node as well as the new node created above
+    head = new_node
+    
+  return head
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
