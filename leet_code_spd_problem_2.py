@@ -1,39 +1,63 @@
-# Leet Code SPD1.01 Problem 2
-# Question: Add Two Numbers Linked List
-
-# Definition for doubly-linked list.
 # Definition for singly-linked list.
-class ListNode:
-  def __init__(self, x):
-    self.val = x
-    self.next = None
+# class ListNode:
+#   def __init__(self, x):
+#     self.val = x
+#     self.next = None
+
 
 # function to turn a linked list to a number
-def return_integer_from_ll(ll):
-    # repr_num = [] # takes O(n) time and space complexity
-    repr_num = ""  # O(n) space complexity and time is O(1) time complexity
-    current_node = ll
+def return_integer_from_ll(ll: ListNode) -> int:
+  # repr_num = [] # takes O(n) time and space complexity
+  repr_num = ""  # O(n) space complexity and time is O(1) time complexity
+  current_node = ll
 
-    while current_node != None:  # make sure that the current node does not equal to none
-        # repr_num.insert(0, str(current_node.val)) # changed this because this would be O(n) time and space complexity
-        repr_num += str(current_node.val)  # O(1) time complexity
-        current_node = current_node.next
-    # return int("".join(repr_num)) # along with the join method would make it O(n) time complexity
-    # python's inbuilt reverse string method makes it easy
-    return int(repr_num[::-1])
+  while current_node != None:  # make sure that the current node does not equal to none
+    # repr_num.insert(0, str(current_node.val)) # changed this because this would be O(n) time and space complexity
+    repr_num += str(current_node.val)  # O(1) time complexity
+    current_node = current_node.next
+  # return int("".join(repr_num)) # along with the join method would make it O(n) time complexity
+  # python's inbuilt reverse string method makes it easy
+  return int(repr_num[::-1])
+
+
+# function to turn a number into a linked list
+def convert_num_to_ll(num: int) -> ListNode:
+  num_str = str(num)[::-1]  # convert the number into a string and reverse it
+
+  head = None  # [first->]
+  tail = None  # [second-> "next" second->]
+
+  ####   create the linked list ####
+#   append method for linked list
+  for n in num_str:
+    # create a new node with the value
+    new_node = ListNode(int(n))
+    # check if the head of the linked list is empty
+    if head == None:
+      # set the start of the linked list
+      head = new_node
+    # otherwise
+    else:
+      tail.next = new_node
+    # set the new node as well as the new node created above
+    tail = new_node
+
+  return head
 
 
 class Solution:
-    def addTwoNumbers(self, l1, l2):
-        # instantiate the linked list we need to return.
-        # l3 = ListNode(None)
+  def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    # instantiate the linked list we need to return.
+    # l3 = ListNode(None)
 
-        # a function or method that allows me to traverse through the linked list and return a digit value
-        l1_num = return_integer_from_ll(l1)
-        l2_num = return_integer_from_ll(l2)
+    # a function or method that allows me to traverse through the linked list and return a digit value
+    l1_num = return_integer_from_ll(l1)
 
-        # another function to get a digit and return a linked list representation of the number given
-        return l1_num + l2_num
+    l2_num = return_integer_from_ll(l2)
+
+    l3 = convert_num_to_ll((l1_num + l2_num))
+    # another function to get a digit and return a linked list representation of the number given
+    return l3
 
     # Restate: So, I have two non-empty linked lists. And the data containing the linked list are non-negative integers.
     # In total they represent a number but it is reversed. So for example 3->2->1 is simply 123. With that I need to add these two numbers.
