@@ -85,6 +85,7 @@ class Solution:
         # to add the given value to the front then later converting that entire list into a whole integer. Less operations than appending them
         # to the list to later reverse them.
 
-        # suggest improvements:
+        # suggest improvements: I decided to use prepend instead of append. Because using append requires me to use reverse string. 
+        # which takes O(n) time instead using prepend removes me having to do that. 
 
         # Leetcode:
