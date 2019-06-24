@@ -104,17 +104,48 @@
 # print(stack)
 
 # it is better to use a linkedlist for queues or deque
-from collections import deque
-# xreare an empty deque object that will function as a queue
-queue = deque()
-# add some items to the queue
-queue.append(1)
-queue.append(2)
-queue.append(3)
-queue.append(4)
-# print the queue contents
-print(queue)
-# pop an item off the front of the queue
-x = queue.popleft()
-print(queue)
+# from collections import deque
+# # xreare an empty deque object that will function as a queue
+# queue = deque()
+# # add some items to the queue
+# queue.append(1)
+# queue.append(2)
+# queue.append(3)
+# queue.append(4)
+# # print the queue contents
+# print(queue)
+# # pop an item off the front of the queue
+# x = queue.popleft()
+# print(queue)
 
+#  recursion 
+# recursion is when a functions calls itsel
+# recursion functions need to have a breaking condition
+# ,this prevents infinite loops and eventually crashes
+
+# def countdown(x):
+#   if x == 0:
+#     print("done!")
+#     return
+#   else:
+#     print(x, "...")
+#     countdown(x - 1)
+#     print("Interesting: ", x)
+
+# countdown(3)
+
+def power(num, pwr):
+  # write the breaking condition first
+  if pwr == 0:
+    return 1
+  else:
+    return num * power(num, pwr - 1)
+
+def factorial(num):
+  if num == 0:
+    return 1
+  else:
+    return num * factorial(num - 1)
+
+print("{} to the power of {} is {}".format(5, 3, power(5, 3)))
+print("{}! is {}".format(4, factorial(4)))
