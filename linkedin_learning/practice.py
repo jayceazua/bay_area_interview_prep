@@ -37,7 +37,7 @@
 #     new_node.next = self.head
 #     self.head = new_node
 #     self.size += 1
-  
+
 #   def find(self, val):
 #     # TODO: find the first item with a given value
 #     item = self.head
@@ -48,7 +48,7 @@
 #       else:
 #         item = item.next
 #     return None
-  
+
 #   def delete_at(self, index):
 #     # TODO: delete an item at given index
 #     if index > self.size - 1:
@@ -118,7 +118,7 @@
 # x = queue.popleft()
 # print(queue)
 
-#  recursion 
+#  recursion
 # recursion is when a functions calls itsel
 # recursion functions need to have a breaking condition
 # ,this prevents infinite loops and eventually crashes
@@ -134,18 +134,119 @@
 
 # countdown(3)
 
-def power(num, pwr):
-  # write the breaking condition first
-  if pwr == 0:
-    return 1
-  else:
-    return num * power(num, pwr - 1)
+# def power(num, pwr):
+#   # write the breaking condition first
+#   if pwr == 0:
+#     return 1
+#   else:
+#     return num * power(num, pwr - 1)
 
-def factorial(num):
-  if num == 0:
-    return 1
-  else:
-    return num * factorial(num - 1)
+# def factorial(num):
+#   if num == 0:
+#     return 1
+#   else:
+#     return num * factorial(num - 2)
 
-print("{} to the power of {} is {}".format(5, 3, power(5, 3)))
-print("{}! is {}".format(4, factorial(4)))
+# print("{} to the power of {} is {}".format(5, 3, power(5, 3)))
+# print("{}! is {}".format(8, factorial(8)))
+
+# Sorting
+
+# def bubble_sort(dataset):
+#     # we decrease by one because we do not need to examine every element. so for range(x,x, -1) the -1 at the end indicates to decrease
+#     # we stop at the 0 index item that is why we have a zero in the middle
+#     for i in range(len(dataset) - 1, 0, -1):
+#         for j in range(i):
+#             if dataset[j] > dataset[j+1]:
+#                 temp = dataset[j]
+#                 dataset[j] = dataset[j+1]
+#                 dataset[j+1] = temp
+
+
+#  Merge sort is a
+# divide-and-conquer algorithm
+# breaks a dataset into individual pieces and merges them
+# uses recursion to operate on datasets
+# performs well on large datasets
+#  O(n log n time complexity)
+
+
+# def merge_sort(dataset):
+#     if len(dataset) > 1:
+#         mid = len(dataset) // 2
+#         left_arr = dataset[:mid]
+#         right_arr = dataset[mid:]
+
+#         # TODO: recursively break down the arrays
+#         merge_sort(left_arr)  # break the left array smaller
+#         merge_sort(right_arr)  # break the right array smaller
+
+#         # TODO: now perform the merging
+#         i = 0  # index into the left array
+#         j = 0  # index into the right array
+#         k = 0  # index into the merged array
+
+#         # TODO: while both arrays have content
+#         while i < len(left_arr) and j < len(right_arr):
+#             if left_arr[i] < right_arr[j]:
+#                 dataset[k] = left_arr[i]
+#                 i += 1
+#             else:
+#                 dataset[k] = right_arr[j]
+#                 j += 1
+#             k += 1
+
+#         # TODO: if the left array still has value, add them
+#         while i < len(left_arr):
+#             dataset[k] = left_arr[i]
+#             i += 1
+#             k += 1 
+#         # TODO: if the right array still has value, add them
+#         while j < len(right_arr):
+#           dataset[k] = right_arr[j]
+#           j += 1
+#           k += 1
+
+
+# Quick sort similar to merge sort but does it in place. 
+# if it is already sorted it will take O(n^2)
+# pivot point selection
+
+dataset = [20, 6, 8, 53, 23, 87, 42, 19]
+
+def quick_sort(dataset, first, last):
+  if first < last:
+    # calculate the split point
+    pivot_index = partition(dataset, first, last)
+    # sort the two partitions
+    quick_sort(dataset, first, pivot_index - 1)
+    quick_sort(dataset, pivot_index + 1, last)
+
+def partition(data_values, first, last):
+  # choose the first item as the pivot value
+  pivot_value = data_values[first]
+  lower = first + 1
+  upper = last
+
+  done = False
+  while not done:
+    while lower <= upper and data_values[lower] <= pivot_value:
+      lower += 1
+    while data_values[upper] >= pivot_value and upper >= lower:
+      upper -= 1
+    if upper < lower:
+      done = True
+    else:
+      temp_value = data_values[lower]
+      data_values[lower] = data_values[upper]
+      data_values[upper] = temp_value
+  # when the split point is found, exchange the pivot value
+  temp = data_values[first]
+  data_values[first] = data_values[upper]
+  data_values[upper] = temp
+  # return the split point index
+  return upper
+
+print(dataset)
+quick_sort(dataset, 0, len(dataset) - 1)
+print(dataset)
