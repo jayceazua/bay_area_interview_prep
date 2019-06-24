@@ -53,6 +53,17 @@ class LinkedList(object):
     # TODO: delete an item at given index
     if index > self.size - 1:
       return
+    if index == 0:
+      self.head = self.head.next
+    else:
+      temp_index = 0
+      node = self.head
+      while temp_index < index - 1:
+        node = node.next
+        temp_index += 1
+      node.next = node.next.next
+      self.size -= 1
+
 
   def dump_list(self):
     temp_node = self.head
@@ -72,3 +83,8 @@ print("Linkedlist size: ", itemList.size)
 print("Find item: ", itemList.find(13))
 print("Finding item: ", itemList.find(78))
 
+print("Deleting....")
+itemList.delete_at(3)
+print("Linkedlist size: ", itemList.size)
+print("Finding item: ", itemList.find(38))
+itemList.dump_list()
