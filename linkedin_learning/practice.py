@@ -250,3 +250,5 @@ def partition(data_values, first, last):
 print(dataset)
 quick_sort(dataset, 0, len(dataset) - 1)
 print(dataset)
+
+# all(itemList[i] <= itemList[i+1] for i in range(len(itemList) - 1))
