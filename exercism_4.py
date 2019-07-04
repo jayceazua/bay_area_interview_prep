@@ -14,6 +14,3 @@ def count_words(sentence):
             word_dict[clean_word.lower()] = 1
     return word_dict 
 
-
-
-print(count_words('rah rah ah ah ah\troma roma ma\tga ga oh la la\t want your bad romance'))
